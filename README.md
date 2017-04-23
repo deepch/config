@@ -73,6 +73,15 @@ type json struct {
 }
 ```
 
+You can use omitempty
+
+```go
+type json struct {
+  ObscureKey string `json:"some_key_NAME,omitempty"`
+}
+```
+
+If use omitempty and Encode not save zero 0 (defoult) data
 
 You can line and char error 
 ```bash
