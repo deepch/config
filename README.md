@@ -47,7 +47,16 @@ And then decoded with:
 
 ```go
 var conf Config
-if _, err := config.Decode(tomlData, &conf); err != nil {
+if _, err := config.Decode(jsonFileString, &conf); err != nil {
+  // handle error
+}
+```
+
+And then encode with:
+
+```go
+var conf Config
+if _, err := config.Encode(jsonFileString, &conf); err != nil {
   // handle error
 }
 ```
