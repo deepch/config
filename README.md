@@ -10,7 +10,7 @@ go get github.com/deepch/config
 
 This package works `JSON`.
 
-For the simplest example, consider some TOML file as just a list of keys
+For the simplest example, consider some JSON file as just a list of keys
 and values:
 
 ```json
