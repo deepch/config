@@ -52,7 +52,7 @@ if _, err := config.Decode(tomlData, &conf); err != nil {
 }
 ```
 
-You can also use struct tags if your struct field name doesn't map to a TOML
+You can also use struct tags if your struct field name doesn't map to a JSON
 key value directly:
 
 ```json
@@ -63,4 +63,11 @@ some_key_NAME = "wat"
 type json struct {
   ObscureKey string `json:"some_key_NAME"`
 }
+```
+
+
+You can line and char error 
+```bash
+Decode Config Syntax Error File config/file.conf 
+Line 5 Char 1 Error invalid character '1' looking for beginning of object key string
 ```
