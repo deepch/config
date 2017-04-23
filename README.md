@@ -55,7 +55,6 @@ if _, err := config.Decode(jsonFileString, &conf); err != nil {
 And then encode with:
 
 ```go
-var conf Config
 if _, err := config.Encode(jsonFileString, &conf); err != nil {
   // handle error
 }
