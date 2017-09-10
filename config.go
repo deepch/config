@@ -28,6 +28,23 @@ func DecodeFile(fpath string, v interface{}) error {
 	return nil
 }
 
+//DecodeFile Decode Config File
+func DecodeBufer(buffer []byte, v interface{}) error {
+	err := json.Unmarshal(buffer, &v)
+	if jsonError, ok := err.(*json.SyntaxError); ok {
+		line, character, _ := lineAndCharacter(string(buffer), int(jsonError.Offset))
+		return fmt.Errorf("Decode Config Syntax Error Buffer Line %v Char %v Error %v", line, character, err)
+	}
+	if jsonError, ok := err.(*json.UnmarshalTypeError); ok {
+		line, character, _ := lineAndCharacter(string(buffer), int(jsonError.Offset))
+		return fmt.Errorf("Decode Config Type Error Buffer Line %v Char %v Error %v", line, character, err)
+	}
+	if err != nil {
+		return fmt.Errorf("Decode Config Other Error Buffer Error %v", err)
+	}
+	return nil
+}
+
 //EncodeFile Encode Config File
 func EncodeFile(fpath string, v interface{}) error {
 	indent, err := json.MarshalIndent(v, "", "  ")
